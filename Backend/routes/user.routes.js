@@ -10,6 +10,13 @@ router.post('/register', [
     body('password').isLength({min:6}).withMessage("password must be atlast six letter")
 ], userController.registerUser)
 
+router.post('/login', [
+    body('email').isEmail().withMessage('invalid Email'),
+    body('password').isLength({min:6}).withMessage("password must be atleast six letter")
+],
+    userController.loginUser
+)
+
 
 
  
